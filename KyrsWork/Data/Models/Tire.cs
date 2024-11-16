@@ -13,7 +13,10 @@ namespace KyrsWork.Data.Models
         public double TirePrice { get; set; } // Цена
         public DateTime ProductionDate { get; set; } // Дата производства
         public DateTime ExpirationDate { get; set; } // Срок годности
-        public int SupplierId { get; set; } // Поставщик
-        
+        public int SupplierId { get; set; } // Поставщик для связи
+        public Supplier? Supplier { get; set; }
+        public int ServiceId { get; set; } // ID услуги для связи
+        public Service? Service { get; set; } // Связь с услугой
+
     }
 }

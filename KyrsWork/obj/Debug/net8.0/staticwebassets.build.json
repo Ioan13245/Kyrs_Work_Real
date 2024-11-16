@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qckng+Lj4EYYZSJLIYRGHOmUQzBy+yuTT0lVhSEoRGM=",
+  "Hash": "/qSV7EmkF7tIchEhfDvkLahlj/M2367Q/ML15s8oU+w=",
   "Source": "KyrsWork",
   "BasePath": "_content/KyrsWork",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "KyrsWork\\wwwroot",
       "Source": "KyrsWork",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\",
       "BasePath": "_content/KyrsWork",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "Identity": "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\QuickGrid.razor.js",
+      "Identity": "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\QuickGrid.razor.js",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "QuickGrid.razor.js",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\QuickGrid.razor.js"
+      "OriginalItemSpec": "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\QuickGrid.razor.js"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\KyrsWork.styles.css",
+      "Identity": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\KyrsWork.styles.css",
       "SourceId": "KyrsWork",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/KyrsWork",
       "RelativePath": "KyrsWork.styles.css",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\KyrsWork.styles.css"
+      "OriginalItemSpec": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\KyrsWork.styles.css"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\KyrsWork.bundle.scp.css",
+      "Identity": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\KyrsWork.bundle.scp.css",
       "SourceId": "KyrsWork",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/KyrsWork",
       "RelativePath": "KyrsWork.bundle.scp.css",
       "AssetKind": "All",
@@ -90,13 +90,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\KyrsWork.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\KyrsWork.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\app.css",
       "SourceId": "KyrsWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\",
       "BasePath": "_content/KyrsWork",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "KyrsWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\",
       "BasePath": "_content/KyrsWork",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "KyrsWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\",
       "BasePath": "_content/KyrsWork",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\favicon.png",
       "SourceId": "KyrsWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\Kyrs_Work_Real\\KyrsWork\\wwwroot\\",
       "BasePath": "_content/KyrsWork",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

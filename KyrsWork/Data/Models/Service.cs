@@ -14,9 +14,9 @@ namespace KyrsWork.Data.Models
         public Worker? Worker { get; set; }
         public int ClientId { get; set; } // ID клиента для соединения
         public Client? Client { get; set; }
-        public int IdTire { get; set; } // ID шины для соединения
-        public Tire? Tire { get; set; }
-        public int WheelId { get; set; } //ID диска для соединения
-        public Wheel? Wheel { get; set; }
+        //Списки шин и дисков
+        public virtual ICollection<Tire> Tires { get; set; } = new List<Tire>(); // Связь с шинами
+        public virtual ICollection<Wheel> Wheels { get; set; } = new List<Wheel>(); // Связь с дисками
     }
 }
+

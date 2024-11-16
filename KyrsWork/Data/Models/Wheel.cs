@@ -12,6 +12,9 @@ namespace KyrsWork.Data.Models
         public double WheelWeight { get; set; } // Вес
         public double WheelPrice { get; set; } // Цена
         public DateTime ProductionDate { get; set; } // Дата производства
-        public int SupplierId { get; set; } // Поставщик
+        public int SupplierId { get; set; } // Поставщик для связи
+        public Supplier? Supplier { get; set; }
+        public int ServiceId { get; set; } // ID услуги для связи
+        public Service? Service { get; set; } // Связь с услугой
     }
 }
