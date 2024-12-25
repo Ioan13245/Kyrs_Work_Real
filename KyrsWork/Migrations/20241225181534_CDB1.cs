@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace KyrsWork.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateSwazi : Migration
+    public partial class CDB1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -90,7 +90,7 @@ namespace KyrsWork.Migrations
                     WorkerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WorkerSalary = table.Column<double>(type: "float", nullable: false),
                     WorkerRaiting = table.Column<int>(type: "int", nullable: false),
-                    WorkerYear = table.Column<int>(type: "int", nullable: false),
+                    WorkerYear = table.Column<DateOnly>(type: "date", nullable: false),
                     WorkerKvalification = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -205,11 +205,29 @@ namespace KyrsWork.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Shipment",
+                columns: table => new
+                {
+                    IdShipment = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    SupplierId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Shipment", x => x.IdShipment);
+                    table.ForeignKey(
+                        name: "FK_Shipment_Suppliers_SupplierId",
+                        column: x => x.SupplierId,
+                        principalTable: "Suppliers",
+                        principalColumn: "SupplierId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Services",
                 columns: table => new
                 {
-                    ServiceId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ServiceName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ServicePrice = table.Column<double>(type: "float", nullable: false),
                     ServiceDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -238,8 +256,7 @@ namespace KyrsWork.Migrations
                 name: "Tires",
                 columns: table => new
                 {
-                    IdTire = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdTire = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Width = table.Column<double>(type: "float", nullable: false),
                     TireLoadCapacity = table.Column<double>(type: "float", nullable: false),
                     TireManufacturer = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -249,7 +266,9 @@ namespace KyrsWork.Migrations
                     ProductionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ExpirationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SupplierId = table.Column<int>(type: "int", nullable: false),
-                    ServiceId = table.Column<int>(type: "int", nullable: false)
+                    ServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdShipment = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ShipmentIdShipment = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -260,6 +279,11 @@ namespace KyrsWork.Migrations
                         principalTable: "Services",
                         principalColumn: "ServiceId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Tires_Shipment_ShipmentIdShipment",
+                        column: x => x.ShipmentIdShipment,
+                        principalTable: "Shipment",
+                        principalColumn: "IdShipment");
                     table.ForeignKey(
                         name: "FK_Tires_Suppliers_SupplierId",
                         column: x => x.SupplierId,
@@ -272,8 +296,7 @@ namespace KyrsWork.Migrations
                 name: "Wheels",
                 columns: table => new
                 {
-                    WheelId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    WheelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     WheelManufacturer = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WheelModel = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WheelDiameter = table.Column<double>(type: "float", nullable: false),
@@ -282,7 +305,9 @@ namespace KyrsWork.Migrations
                     WheelPrice = table.Column<double>(type: "float", nullable: false),
                     ProductionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SupplierId = table.Column<int>(type: "int", nullable: false),
-                    ServiceId = table.Column<int>(type: "int", nullable: false)
+                    ServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdShipment = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ShipmentIdShipment = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -293,6 +318,11 @@ namespace KyrsWork.Migrations
                         principalTable: "Services",
                         principalColumn: "ServiceId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Wheels_Shipment_ShipmentIdShipment",
+                        column: x => x.ShipmentIdShipment,
+                        principalTable: "Shipment",
+                        principalColumn: "IdShipment");
                     table.ForeignKey(
                         name: "FK_Wheels_Suppliers_SupplierId",
                         column: x => x.SupplierId,
@@ -351,9 +381,19 @@ namespace KyrsWork.Migrations
                 column: "WorkerId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Shipment_SupplierId",
+                table: "Shipment",
+                column: "SupplierId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Tires_ServiceId",
                 table: "Tires",
                 column: "ServiceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tires_ShipmentIdShipment",
+                table: "Tires",
+                column: "ShipmentIdShipment");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tires_SupplierId",
@@ -364,6 +404,11 @@ namespace KyrsWork.Migrations
                 name: "IX_Wheels_ServiceId",
                 table: "Wheels",
                 column: "ServiceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Wheels_ShipmentIdShipment",
+                table: "Wheels",
+                column: "ShipmentIdShipment");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Wheels_SupplierId",
@@ -405,13 +450,16 @@ namespace KyrsWork.Migrations
                 name: "Services");
 
             migrationBuilder.DropTable(
-                name: "Suppliers");
+                name: "Shipment");
 
             migrationBuilder.DropTable(
                 name: "Clients");
 
             migrationBuilder.DropTable(
                 name: "Worker");
+
+            migrationBuilder.DropTable(
+                name: "Suppliers");
         }
     }
 }

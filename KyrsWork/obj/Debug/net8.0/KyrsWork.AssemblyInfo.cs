@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KyrsWork")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24f180d67f8ccd5397e8e471a26c2fb466547ac1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d6de24a5fe1ebd2c77e3a2f95902f848c670b91")]
 [assembly: System.Reflection.AssemblyProductAttribute("KyrsWork")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KyrsWork")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

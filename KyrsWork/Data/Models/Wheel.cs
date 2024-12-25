@@ -4,7 +4,7 @@ namespace KyrsWork.Data.Models
 {
     public class Wheel
     {
-        [Key] public int WheelId { get; set; }
+        [Key] public Guid WheelId { get; set; }
         public string? WheelManufacturer { get; set; } // Производитель
         public string? WheelModel { get; set; } // Модель диска
         public double WheelDiameter { get; set; } // Диаметр диска
@@ -14,7 +14,9 @@ namespace KyrsWork.Data.Models
         public DateTime ProductionDate { get; set; } // Дата производства
         public int SupplierId { get; set; } // Поставщик для связи
         public Supplier? Supplier { get; set; }
-        public int ServiceId { get; set; } // ID услуги для связи
+        public Guid ServiceId { get; set; } // ID услуги для связи
         public Service? Service { get; set; } // Связь с услугой
+        public Guid IdShipment {  get; set; }
+        public Shipment? Shipment { get; set; }
     }
 }

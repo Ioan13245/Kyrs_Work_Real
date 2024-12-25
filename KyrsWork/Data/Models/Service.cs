@@ -4,7 +4,7 @@ namespace KyrsWork.Data.Models
 {
     public class Service
     {
-        [Key] public int ServiceId { get; set; } // ID услуги
+        [Key] public Guid ServiceId { get; set; } // ID услуги
         public string? ServiceName { get; set; } // Название услуги
         public double ServicePrice { get; set; } // Цена за предоставление услуги
         public DateTime ServiceDate { get; set; } // Дата предоставления услуги
@@ -15,8 +15,8 @@ namespace KyrsWork.Data.Models
         public int ClientId { get; set; } // ID клиента для соединения
         public Client? Client { get; set; }
         //Списки шин и дисков
-        public virtual ICollection<Tire> Tires { get; set; } = new List<Tire>(); // Связь с шинами
-        public virtual ICollection<Wheel> Wheels { get; set; } = new List<Wheel>(); // Связь с дисками
+        public virtual ICollection<Tire> Tires { get; set; } = new List<Tire>();
+        public virtual ICollection<Wheel> Wheels { get; set; } = new List<Wheel>();
     }
 }
 

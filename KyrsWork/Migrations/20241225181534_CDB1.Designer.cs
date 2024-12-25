@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KyrsWork.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241116091306_CreateSwazi")]
-    partial class CreateSwazi
+    [Migration("20241225181534_CDB1")]
+    partial class CDB1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -117,11 +117,9 @@ namespace KyrsWork.Migrations
 
             modelBuilder.Entity("KyrsWork.Data.Models.Service", b =>
                 {
-                    b.Property<int>("ServiceId")
+                    b.Property<Guid>("ServiceId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceId"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("ClientId")
                         .HasColumnType("int");
@@ -150,6 +148,25 @@ namespace KyrsWork.Migrations
                     b.ToTable("Services");
                 });
 
+            modelBuilder.Entity("KyrsWork.Data.Models.Shipment", b =>
+                {
+                    b.Property<Guid>("IdShipment")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SupplierId")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdShipment");
+
+                    b.HasIndex("SupplierId");
+
+                    b.ToTable("Shipment");
+                });
+
             modelBuilder.Entity("KyrsWork.Data.Models.Supplier", b =>
                 {
                     b.Property<int>("SupplierId")
@@ -174,14 +191,15 @@ namespace KyrsWork.Migrations
 
             modelBuilder.Entity("KyrsWork.Data.Models.Tire", b =>
                 {
-                    b.Property<int>("IdTire")
+                    b.Property<Guid>("IdTire")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTire"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid>("IdShipment")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsUsed")
                         .HasColumnType("bit");
@@ -192,8 +210,11 @@ namespace KyrsWork.Migrations
                     b.Property<string>("Season")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ShipmentIdShipment")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("SupplierId")
                         .HasColumnType("int");
@@ -214,6 +235,8 @@ namespace KyrsWork.Migrations
 
                     b.HasIndex("ServiceId");
 
+                    b.HasIndex("ShipmentIdShipment");
+
                     b.HasIndex("SupplierId");
 
                     b.ToTable("Tires");
@@ -221,17 +244,21 @@ namespace KyrsWork.Migrations
 
             modelBuilder.Entity("KyrsWork.Data.Models.Wheel", b =>
                 {
-                    b.Property<int>("WheelId")
+                    b.Property<Guid>("WheelId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WheelId"));
+                    b.Property<Guid>("IdShipment")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("ProductionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ShipmentIdShipment")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("SupplierId")
                         .HasColumnType("int");
@@ -258,6 +285,8 @@ namespace KyrsWork.Migrations
 
                     b.HasIndex("ServiceId");
 
+                    b.HasIndex("ShipmentIdShipment");
+
                     b.HasIndex("SupplierId");
 
                     b.ToTable("Wheels");
@@ -283,8 +312,8 @@ namespace KyrsWork.Migrations
                     b.Property<double>("WorkerSalary")
                         .HasColumnType("float");
 
-                    b.Property<int>("WorkerYear")
-                        .HasColumnType("int");
+                    b.Property<DateOnly>("WorkerYear")
+                        .HasColumnType("date");
 
                     b.HasKey("WorkerId");
 
@@ -443,6 +472,17 @@ namespace KyrsWork.Migrations
                     b.Navigation("Worker");
                 });
 
+            modelBuilder.Entity("KyrsWork.Data.Models.Shipment", b =>
+                {
+                    b.HasOne("KyrsWork.Data.Models.Supplier", "Supplier")
+                        .WithMany()
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Supplier");
+                });
+
             modelBuilder.Entity("KyrsWork.Data.Models.Tire", b =>
                 {
                     b.HasOne("KyrsWork.Data.Models.Service", "Service")
@@ -451,6 +491,10 @@ namespace KyrsWork.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("KyrsWork.Data.Models.Shipment", "Shipment")
+                        .WithMany("Tires")
+                        .HasForeignKey("ShipmentIdShipment");
+
                     b.HasOne("KyrsWork.Data.Models.Supplier", "Supplier")
                         .WithMany()
                         .HasForeignKey("SupplierId")
@@ -458,6 +502,8 @@ namespace KyrsWork.Migrations
                         .IsRequired();
 
                     b.Navigation("Service");
+
+                    b.Navigation("Shipment");
 
                     b.Navigation("Supplier");
                 });
@@ -470,6 +516,10 @@ namespace KyrsWork.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("KyrsWork.Data.Models.Shipment", "Shipment")
+                        .WithMany("Wheels")
+                        .HasForeignKey("ShipmentIdShipment");
+
                     b.HasOne("KyrsWork.Data.Models.Supplier", "Supplier")
                         .WithMany()
                         .HasForeignKey("SupplierId")
@@ -477,6 +527,8 @@ namespace KyrsWork.Migrations
                         .IsRequired();
 
                     b.Navigation("Service");
+
+                    b.Navigation("Shipment");
 
                     b.Navigation("Supplier");
                 });
@@ -533,6 +585,13 @@ namespace KyrsWork.Migrations
                 });
 
             modelBuilder.Entity("KyrsWork.Data.Models.Service", b =>
+                {
+                    b.Navigation("Tires");
+
+                    b.Navigation("Wheels");
+                });
+
+            modelBuilder.Entity("KyrsWork.Data.Models.Shipment", b =>
                 {
                     b.Navigation("Tires");
 

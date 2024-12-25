@@ -12,6 +12,7 @@ namespace KyrsWork.Data
         public DbSet<Supplier> Suppliers { get; set; } = default!;
         public DbSet<Tire> Tires { get; set; } = default!;
         public DbSet<Wheel> Wheels { get; set; } = default!;
+        public DbSet<Shipment> Shipment { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -26,7 +27,7 @@ namespace KyrsWork.Data
                 .HasOne(w => w.Service) // Каждый диск относится к одной услуге
                 .WithMany(s => s.Wheels) // Услуга может иметь много дисков
                 .HasForeignKey(w => w.ServiceId); // Устанавливаем внешний ключ
-
+            
         }
     }
 }

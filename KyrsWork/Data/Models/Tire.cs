@@ -4,7 +4,7 @@ namespace KyrsWork.Data.Models
 {
     public class Tire
     {
-        [Key] public int IdTire { get; set; } // ID шины
+        [Key] public Guid IdTire { get; set; } // ID шины
         public double Width { get; set; } // Ширина шины
         public double TireLoadCapacity { get; set; } // Грузоподъёмность
         public string? TireManufacturer { get; set; } // Производитель
@@ -15,8 +15,11 @@ namespace KyrsWork.Data.Models
         public DateTime ExpirationDate { get; set; } // Срок годности
         public int SupplierId { get; set; } // Поставщик для связи
         public Supplier? Supplier { get; set; }
-        public int ServiceId { get; set; } // ID услуги для связи
+
+        public Guid ServiceId { get; set; } // ID услуги для связи
         public Service? Service { get; set; } // Связь с услугой
 
+        public Guid IdShipment { get; set; }
+        public Shipment? Shipment { get; set; }
     }
 }
